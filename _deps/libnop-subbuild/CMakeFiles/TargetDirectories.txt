@@ -1,0 +1,3 @@
+/home/ljtakii/Desktop/cellular_automata/_deps/libnop-subbuild/CMakeFiles/rebuild_cache.dir
+/home/ljtakii/Desktop/cellular_automata/_deps/libnop-subbuild/CMakeFiles/edit_cache.dir
+/home/ljtakii/Desktop/cellular_automata/_deps/libnop-subbuild/CMakeFiles/libnop-populate.dir

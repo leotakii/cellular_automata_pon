@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-subbuild/CMakeFiles/libnop-populate"
+		},
+		{
+			"file" : "/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-subbuild/CMakeFiles/libnop-populate.rule"
+		},
+		{
+			"file" : "/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-subbuild/CMakeFiles/libnop-populate-complete.rule"
+		},
+		{
+			"file" : "/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-subbuild/libnop-populate-prefix/src/libnop-populate-stamp/libnop-populate-build.rule"
+		},
+		{
+			"file" : "/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-subbuild/libnop-populate-prefix/src/libnop-populate-stamp/libnop-populate-configure.rule"
+		},
+		{
+			"file" : "/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-subbuild/libnop-populate-prefix/src/libnop-populate-stamp/libnop-populate-download.rule"
+		},
+		{
+			"file" : "/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-subbuild/libnop-populate-prefix/src/libnop-populate-stamp/libnop-populate-install.rule"
+		},
+		{
+			"file" : "/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-subbuild/libnop-populate-prefix/src/libnop-populate-stamp/libnop-populate-mkdir.rule"
+		},
+		{
+			"file" : "/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-subbuild/libnop-populate-prefix/src/libnop-populate-stamp/libnop-populate-patch.rule"
+		},
+		{
+			"file" : "/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-subbuild/libnop-populate-prefix/src/libnop-populate-stamp/libnop-populate-test.rule"
+		},
+		{
+			"file" : "/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-subbuild/libnop-populate-prefix/src/libnop-populate-stamp/libnop-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"libnop-populate"
+		],
+		"name" : "libnop-populate"
+	}
+}

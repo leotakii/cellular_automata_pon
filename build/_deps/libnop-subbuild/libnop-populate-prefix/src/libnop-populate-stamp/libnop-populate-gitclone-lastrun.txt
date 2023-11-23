@@ -1,0 +1,3 @@
+repository='https://nop.dainf.ct.utfpr.edu.br/nop-implementations/frameworks/nop-framework-cpp-4-dot-5/nop-framework-cpp-4-dot-5-kernel.git'
+module=''
+tag='origin'

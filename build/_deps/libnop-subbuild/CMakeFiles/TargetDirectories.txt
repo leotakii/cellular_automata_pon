@@ -1,0 +1,3 @@
+/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-subbuild/CMakeFiles/libnop-populate.dir
+/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-subbuild/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-subbuild/CMakeFiles/rebuild_cache.dir

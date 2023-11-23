@@ -1,0 +1,14 @@
+/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/CMakeFiles/cellular_automata.dir
+/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/CMakeFiles/list_install_components.dir
+/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/CMakeFiles/install.dir
+/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/CMakeFiles/install/local.dir
+/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/CMakeFiles/install/strip.dir
+/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-build/CMakeFiles/libnop.dir
+/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-build/CMakeFiles/list_install_components.dir
+/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-build/CMakeFiles/install.dir
+/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-build/CMakeFiles/install/local.dir
+/mnt/c/Users/Pc/Downloads/cellular_automata_ihaaa_jun_12_2023/cellular_automata/build/_deps/libnop-build/CMakeFiles/install/strip.dir

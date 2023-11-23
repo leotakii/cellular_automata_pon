@@ -1,0 +1,11 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=
+includedir=
+
+Name: 
+Version: 
+Description: 
+Libs: 
+Requires: 
+Cflags: -I${includedir}
