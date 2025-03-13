@@ -4,19 +4,19 @@ struct Cell : NOP::FBE
 {
   NOP::SharedAttribute<int>  atID{NOP::BuildAttribute(0)};
 
-  NOP::SharedAttribute<bool> atState{NOP::BuildAttribute(false)};
+  NOP::SharedAttribute<bool> atState{NOP::BuildAttribute(false)}; //default as false
+  
   NOP::SharedAttribute<bool> atStateLeft{NOP::BuildAttribute(false)}; //neighboorhood
   NOP::SharedAttribute<bool> atStateRight{NOP::BuildAttribute(false)};
 
-  NOP::SharedAttribute<bool> atTransitionState{NOP::BuildAttribute(false)};
+  NOP::SharedAttribute<bool> atTransitionState{NOP::BuildAttribute(false)}; //next state
   
   NOP::SharedAttribute<bool> atAllReady{NOP::BuildAttribute(false)}; //flag for synchronicity purposes
 
-  NOP::SharedAttribute<int> atElemAutomataRuleID{NOP::BuildAttribute(0)}; //To be implemented: dynamic rule changes
+  NOP::SharedAttribute<int> atElemAutomataRuleID{NOP::BuildAttribute(0)}; //TODO To be implemented: dynamic rule changes
 
-  NOP::SharedAttribute<int> atChanges{NOP::BuildAttribute(0)}; //remembers how many times the state was changed
+  NOP::SharedAttribute<int> atChanges{NOP::BuildAttribute(0)}; //remembers how many times the state was changed. TODO check *overflow*
   NOP::SharedAttribute<int> atRuleExecuted{NOP::BuildAttribute(0)}; //it is used to count how many times the cells' states change in a given loop 
-  //criar estados transitórios
 
   //2^3 rules for Elementar Cellular Automata 
   NOP::SharedRule rl000;
@@ -27,27 +27,27 @@ struct Cell : NOP::FBE
   NOP::SharedRule rl101;
   NOP::SharedRule rl110;
   NOP::SharedRule rl111;
-  NOP::SharedRule rlMaster;
+  //NOP::SharedRule rlMaster;
 
   void setID(int id) const {
     atID->SetValue(id);
   }
 
-  void addChange() const {
-    atRuleExecuted->SetValue(1);
-    atChanges->SetValue(atChanges->GetValue()+1);
-  }
    void activate() const
   {
-   // showChanges();
+    //std::cout << atID->GetValue() <<"A"<< std::endl;
+    atRuleExecuted->SetValue(1);
     atTransitionState->SetValue(true);
-    addChange();
+    atChanges->SetValue(atChanges->GetValue()+1);
+
   }
 
   void deactivate() const {
-    //showChanges();
+    //std::cout << atID->GetValue() <<"D"<< std::endl;
+    atRuleExecuted->SetValue(1);
     atTransitionState->SetValue(false);
-    addChange();
+    atChanges->SetValue(atChanges->GetValue()+1);
+
   }
 
   void ready() const{
@@ -56,24 +56,20 @@ struct Cell : NOP::FBE
   void unready() const{
     atAllReady->SetValue(false);
     atState->SetValue(atTransitionState->GetValue());
-    atTransitionState->SetValue(atState->GetValue());
+    //atTransitionState->SetValue(atState->GetValue());
   }
 
   void setNeighbors_1D(bool left, bool right) const {
     atStateLeft->SetValue(left);
     atStateRight->SetValue(right);
+    atRuleExecuted->SetValue(0);
   }
 
-  void showChanges() const {
-    std::cout << atID->GetValue() << std::endl;
-
-  }
-
-  void setElemAutomataRuleID(int elemAutomataID) const{
+   void setElemAutomataRuleID(int elemAutomataID) const{
     atElemAutomataRuleID->SetValue(elemAutomataID);
   }
-
-  void transition() const{
+  /*
+  void transition() const{ //transition for master rule (not implemented)
     switch (atElemAutomataRuleID->GetValue()) {
     case 30: //executes rule 30 
       atState->SetValue(atStateLeft->GetValue() ^ (atState->GetValue() || atStateRight->GetValue()));
@@ -92,6 +88,7 @@ struct Cell : NOP::FBE
 
     }
   }
+  */
 
   Cell(int ElemAutomataRuleID)
   {
@@ -205,7 +202,7 @@ struct Cell : NOP::FBE
         END_ACTION;
       END_RULE;
       break;
-
+      
       case 184:
       RULE(&rl010);
         LCONDITION();
@@ -240,6 +237,72 @@ struct Cell : NOP::FBE
         END_CONDITION;
         ACTION();
           INSTIGATE(METHOD(this->deactivate();));
+        END_ACTION;
+      END_RULE;
+      break;
+      case 250: //executes rule 250
+      RULE(&rl001);
+        LCONDITION();
+          CEXP(atStateLeft == false) AND CEXP(atState == false) AND CEXP(atStateRight == true) AND CEXP(atAllReady == true) AND CEXP(atRuleExecuted == 0)  ;
+        END_CONDITION;
+        ACTION();
+          INSTIGATE(METHOD(this->activate();));
+        END_ACTION;
+      END_RULE;
+
+      RULE(&rl010);
+        LCONDITION();
+          CEXP(atStateLeft == false) AND CEXP(atState == true) AND CEXP(atStateRight == false) AND CEXP(atAllReady == true) AND CEXP(atRuleExecuted == 0)  ;
+        END_CONDITION;
+        ACTION();
+          INSTIGATE(METHOD(this->deactivate();));
+        END_ACTION;
+      END_RULE;
+
+      RULE(&rl100);
+        LCONDITION();
+          CEXP(atStateLeft == true) AND CEXP(atState == false) AND CEXP(atStateRight == false) AND CEXP(atAllReady == true) AND CEXP(atRuleExecuted == 0)  ;
+        END_CONDITION;
+        ACTION();
+          INSTIGATE(METHOD(this->activate();));
+        END_ACTION;
+      END_RULE;
+
+      RULE(&rl101);
+        LCONDITION();
+          CEXP(atStateLeft == true) AND CEXP(atState == false) AND CEXP(atStateRight == true) AND CEXP(atAllReady == true) AND CEXP(atRuleExecuted == 0)  ;
+        END_CONDITION;
+        ACTION();
+          INSTIGATE(METHOD(this->activate();));
+        END_ACTION;
+      END_RULE;
+        
+      break;
+      case 254: //executes rule 254. Makes a triangle
+      RULE(&rl001);
+        LCONDITION();
+          CEXP(atStateLeft == false) AND CEXP(atState == false) AND CEXP(atStateRight == true) AND CEXP(atAllReady == true) AND CEXP(atRuleExecuted == 0)  ;
+        END_CONDITION;
+        ACTION();
+          INSTIGATE(METHOD(this->activate();));
+        END_ACTION;
+      END_RULE;
+
+      RULE(&rl100);
+        LCONDITION();
+          CEXP(atStateLeft == true) AND CEXP(atState == false) AND CEXP(atStateRight == false) AND CEXP(atAllReady == true) AND CEXP(atRuleExecuted == 0)  ;
+        END_CONDITION;
+        ACTION();
+          INSTIGATE(METHOD(this->activate();));
+        END_ACTION;
+      END_RULE;
+
+      RULE(&rl101);
+        LCONDITION();
+          CEXP(atStateLeft == true) AND CEXP(atState == false) AND CEXP(atStateRight == true) AND CEXP(atAllReady == true) AND CEXP(atRuleExecuted == 0)  ;
+        END_CONDITION;
+        ACTION();
+          INSTIGATE(METHOD(this->activate();));
         END_ACTION;
       END_RULE;
       break;

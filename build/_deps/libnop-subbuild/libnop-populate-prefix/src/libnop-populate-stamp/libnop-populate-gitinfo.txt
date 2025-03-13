@@ -1,3 +1,15 @@
-repository='https://nop.dainf.ct.utfpr.edu.br/nop-implementations/frameworks/nop-framework-cpp-4-dot-5/nop-framework-cpp-4-dot-5-kernel.git'
-module=''
-tag='origin'
+# This is a generated file and its contents are an internal implementation detail.
+# The download step will be re-executed if anything in this file changes.
+# No other meaning or use of this file is supported.
+
+method=git
+command=/usr/local/lib/python3.9/dist-packages/cmake/data/bin/cmake;-DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE;-P;/home/ljtakii/Downloads/cellular_automata_takii/cellular_automata_pon/build/_deps/libnop-subbuild/libnop-populate-prefix/tmp/libnop-populate-gitclone.cmake
+source_dir=/home/ljtakii/Downloads/cellular_automata_takii/cellular_automata_pon/build/_deps/libnop-src
+work_dir=/home/ljtakii/Downloads/cellular_automata_takii/cellular_automata_pon/build/_deps
+repository=https://nop.dainf.ct.utfpr.edu.br/nop-implementations/frameworks/nop-framework-cpp-4-dot-5/nop-framework-cpp-4-dot-5-kernel.git
+remote=origin
+init_submodules=TRUE
+recurse_submodules=--recursive
+submodules=
+CMP0097=NEW
+      
