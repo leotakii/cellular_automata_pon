@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/cellular_automata.dir/src/main.cpp.o -o cellular_automata  _deps/libnop-build/libnop.a -lpthread -ltbb

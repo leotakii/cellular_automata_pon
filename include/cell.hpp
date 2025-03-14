@@ -3,18 +3,12 @@
 struct Cell : NOP::FBE
 {
   NOP::SharedAttribute<int>  atID{NOP::BuildAttribute(0)};
-
   NOP::SharedAttribute<bool> atState{NOP::BuildAttribute(false)}; //default as false
-  
   NOP::SharedAttribute<bool> atStateLeft{NOP::BuildAttribute(false)}; //neighboorhood
   NOP::SharedAttribute<bool> atStateRight{NOP::BuildAttribute(false)};
-
   NOP::SharedAttribute<bool> atTransitionState{NOP::BuildAttribute(false)}; //next state
-  
   NOP::SharedAttribute<bool> atAllReady{NOP::BuildAttribute(false)}; //flag for synchronicity purposes
-
-  NOP::SharedAttribute<int> atElemAutomataRuleID{NOP::BuildAttribute(0)}; //TODO To be implemented: dynamic rule changes
-
+  NOP::SharedAttribute<int> atElemAutomataRuleID{NOP::BuildAttribute(0)};
   NOP::SharedAttribute<int> atChanges{NOP::BuildAttribute(0)}; //remembers how many times the state was changed. TODO check *overflow*
   NOP::SharedAttribute<int> atRuleExecuted{NOP::BuildAttribute(0)}; //it is used to count how many times the cells' states change in a given loop 
 
@@ -33,13 +27,11 @@ struct Cell : NOP::FBE
     atID->SetValue(id);
   }
 
-   void activate() const
-  {
+   void activate() const{
     //std::cout << atID->GetValue() <<"A"<< std::endl;
     atRuleExecuted->SetValue(1);
     atTransitionState->SetValue(true);
     atChanges->SetValue(atChanges->GetValue()+1);
-
   }
 
   void deactivate() const {
@@ -70,6 +62,8 @@ struct Cell : NOP::FBE
   }
   /*
   void transition() const{ //transition for master rule (not implemented)
+  
+  //TODO To be implemented: dynamic rule changes
     switch (atElemAutomataRuleID->GetValue()) {
     case 30: //executes rule 30 
       atState->SetValue(atStateLeft->GetValue() ^ (atState->GetValue() || atStateRight->GetValue()));

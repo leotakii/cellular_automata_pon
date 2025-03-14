@@ -1,3 +1,0 @@
-/home/ljtakii/Downloads/cellular_automata_takii/cellular_automata_pon/build/_deps/libnop-subbuild/CMakeFiles/libnop-populate.dir
-/home/ljtakii/Downloads/cellular_automata_takii/cellular_automata_pon/build/_deps/libnop-subbuild/CMakeFiles/edit_cache.dir
-/home/ljtakii/Downloads/cellular_automata_takii/cellular_automata_pon/build/_deps/libnop-subbuild/CMakeFiles/rebuild_cache.dir

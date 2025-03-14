@@ -68,7 +68,9 @@ int main(int argc, char **argv)
     std::cout << "Elementary Cellular Automata: Rule " << ElemAutomataRuleID << std::endl;
     std::cout << "Creating " << n_cells << " cells" << std::endl;
   }
-
+  //Default Scheduler Strategy: FIFO
+  //NOP::Scheduler::Instance().SetStrategy(NOP::EStrategy::None);
+  //NOP::Scheduler::Instance().SetStrategy(NOP::EStrategy::Keeper);
 
   std::vector<std::shared_ptr<Cell>> cells;
 
@@ -80,7 +82,6 @@ int main(int argc, char **argv)
     cells.push_back(std::make_shared<Cell>(ElemAutomataRuleID));
     cells[i]->setID((i));
   }
-
 
   auto creation_end = NOW();
   auto creation_time = TO_MS(creation_end - creation_start);
@@ -216,8 +217,8 @@ void run_imperative_vector_elementary_automata(){
         case 110: //executes rule 110
           cells_odd_step[i] = (!cells_even_step[(i-1)  % n_cells] && cells_even_step[(i+1)  % n_cells] || (cells_even_step[i] ^ cells_even_step[(i+1)  % n_cells]));
           break;
-        case 184: //executes rule 184
-          cells_odd_step[i] = (cells_even_step[(i-1)  % n_cells] || (cells_even_step[(i-1)  % n_cells] && cells_even_step[i]) || (cells_even_step[i] && cells_even_step[(i+1) % n_cells]));
+        case 184: //executes rule 184 p ^(q && (p ^ r))
+          cells_odd_step[i] = (cells_even_step[(i-1)  % n_cells] ^ (cells_even_step[i] && (cells_even_step[(i-1) % n_cells] ^ cells_even_step[(i+1) % n_cells])));
         break;
         case 250: //executes rule 250
           cells_odd_step[i] = (cells_even_step[(i-1)  % n_cells]  || cells_even_step[(i+1)  % n_cells]);
@@ -240,8 +241,8 @@ void run_imperative_vector_elementary_automata(){
         case 110: //executes rule 110
           cells_even_step[i] = (!cells_odd_step[(i-1)  % n_cells] && cells_odd_step[(i+1)  % n_cells] || (cells_odd_step[i] ^ cells_odd_step[(i+1)  % n_cells]));
         break;
-        case 184: //executes rule 184
-          cells_even_step[i] = (cells_odd_step[(i-1)  % n_cells] || (cells_odd_step[(i-1)  % n_cells] && cells_odd_step[i]) || (cells_odd_step[i] && cells_odd_step[(i+1) % n_cells]));
+        case 184: //executes rule 184 p ^(q && (p ^ r))
+          cells_even_step[i] = (cells_odd_step[(i-1)  % n_cells] ^ (cells_odd_step[i] && (cells_odd_step[(i-1) % n_cells] ^ cells_odd_step[(i+1) % n_cells])));
         break;
         case 250: //executes rule 250
           cells_even_step[i] = (cells_odd_step[(i-1)  % n_cells]  || cells_odd_step[(i+1)  % n_cells]);
